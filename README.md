@@ -7,7 +7,7 @@ Terraform Module for onboarding an AWS account to Prisma Cloud
 module "example" {
 
   source            = "github.com/hasitha-u/tf-prismacloud-aws-account"
-  account_group_ids = ["${prismacloud_account_group.example.group_id}"]
+  account_group_ids = [prismacloud_account_group.example.group_id]
   features          = ["Auto Protect","Remediation"]
 }
 ```
@@ -60,7 +60,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_account_group_ids"></a> [account\_group\_ids](#input\_account\_group\_ids) | Prisma Cloud Account Group Ids | `list(string)` | n/a | yes |
-| <a name="input_features"></a> [features](#input\_features) | Prisma Cloud Protection mode. (MONITOR\|MONITOR\_AND\_PROTECT) | `list(string)` | `[]` | no |
+| <a name="input_features"></a> [features](#input\_features) | Prisma Cloud Account features (Agentless Scanning\|Auto Protect\|Data Security\|Remediation\|Serverless Function Scanning) | `list(string)` | `[]` | no |
 | <a name="input_role_name_prefix"></a> [role\_name\_prefix](#input\_role\_name\_prefix) | Role name prefix | `string` | `"PrismaCloudRole-"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to resources | `map(string)` | `{}` | no |
 
@@ -68,5 +68,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | Prisma Cloud AWS IAM Role ARN |
+| <a name="output_aws_role_arn"></a> [aws\_role\_arn](#output\_aws\_role\_arn) | Prisma Cloud AWS IAM Role ARN |
+| <a name="output_prisma_cloud_account_id"></a> [prisma\_cloud\_account\_id](#output\_prisma\_cloud\_account\_id) | Prisma Cloud Account Id |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
