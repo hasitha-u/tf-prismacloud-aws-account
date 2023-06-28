@@ -1,4 +1,4 @@
-# terraform-prismacloud-aws-role
+# tf-prismacloud-aws-account
 Terraform Module for onboarding an AWS account to Prisma Cloud
 
 ## Usage
