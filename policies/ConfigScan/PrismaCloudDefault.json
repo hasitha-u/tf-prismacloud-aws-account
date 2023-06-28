@@ -1,0 +1,155 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "logs:GetLogEvents"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudFlowlogs1"
+        },
+        {
+            "Action": [
+                "cloudtrail:LookupEvents"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudAuditEventsCloudTrail1"
+        },
+        {
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::elasticbeanstalk-*/*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudElasticBeanstalk5"
+        },
+        {
+            "Action": [
+                "guardduty:GetDetector",
+                "guardduty:GetFindings",
+                "guardduty:ListDetectors",
+                "guardduty:ListFindings"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudGuardduty1"
+        },
+        {
+            "Action": [
+                "cloudtrail:DescribeTrails",
+                "cloudtrail:GetEventSelectors",
+                "cloudtrail:GetTrailStatus",
+                "ec2:DescribeRegions",
+                "events:DescribeApiDestination",
+                "events:DescribeConnection",
+                "events:DescribeRule",
+                "events:ListTargetsByRule"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudEBRuleStatusPermissions2"
+        },
+        {
+            "Action": [
+                "inspector:DescribeAssessmentTemplates",
+                "inspector:DescribeFindings",
+                "inspector:DescribeRulesPackages",
+                "inspector:ListAssessmentRunAgents",
+                "inspector:ListAssessmentRuns",
+                "inspector:ListAssessmentTemplates",
+                "inspector:ListFindings",
+                "inspector:ListRulesPackages"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudInspector1"
+        },
+        {
+            "Action": [
+                "waf-regional:ListWebACLs",
+                "waf:GetLoggingConfiguration",
+                "waf:GetWebACL",
+                "waf:ListTagsForResource",
+                "waf:ListWebACLs",
+                "wafv2:GetLoggingConfiguration",
+                "wafv2:GetWebACL",
+                "wafv2:ListResourcesForWebACL",
+                "wafv2:ListRuleGroups",
+                "wafv2:ListTagsForResource",
+                "wafv2:ListWebACLs",
+                "workspaces:DescribeIpGroups",
+                "workspaces:DescribeTags",
+                "workspaces:DescribeWorkspaceBundles",
+                "workspaces:DescribeWorkspaceDirectories",
+                "workspaces:DescribeWorkspaces",
+                "xray:GetEncryptionConfig"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudConfig4"
+        },
+        {
+            "Action": [
+                "cloudformation:DescribeStackResources",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStacks",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:BatchGetImage",
+                "ecr:BatchGetRepositoryScanningConfiguration",
+                "ecr:DescribeImageReplicationStatus",
+                "ecr:DescribeImageScanFindings",
+                "ecr:DescribePullThroughCacheRules",
+                "ecr:DescribeRegistry",
+                "ecr:GetAuthorizationToken",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:GetLifecyclePolicyPreview",
+                "ecr:GetRegistryPolicy",
+                "ecr:ListImages",
+                "lambda:GetEventSourceMapping",
+                "lambda:GetFunction",
+                "lambda:GetLayerVersion",
+                "s3:ListBucket",
+                "sns:GetSubscriptionAttributes"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudBridgecrew1"
+        },
+        {
+            "Action": [
+                "apigateway:GET",
+                "cloudfront:ListDistributions",
+                "cloudwatch:DescribeAlarms",
+                "ec2:DescribeTags",
+                "elasticloadbalancing:DescribeListenerCertificates",
+                "elasticloadbalancing:DescribeListeners",
+                "elasticloadbalancing:DescribeRules",
+                "elasticloadbalancing:DescribeTargetGroups",
+                "events:ListRules",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListRolePolicies",
+                "kms:Decrypt",
+                "lambda:GetFunction",
+                "lambda:GetFunctionConfiguration",
+                "lambda:GetFunctionUrlConfig",
+                "lambda:GetPolicy",
+                "lambda:ListAliases",
+                "lambda:ListEventSourceMappings",
+                "lambda:ListFunctions",
+                "logs:DescribeSubscriptionFilters",
+                "s3:GetBucketNotification",
+                "secretsmanager:GetSecretValue",
+                "ssm:GetParameter"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudComputeDiscovery1"
+        }
+    ]
+}

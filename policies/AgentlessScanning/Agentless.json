@@ -1,0 +1,155 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ssm:GetParameter",
+                "ssm:GetParameters"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessSSM6"
+        },
+        {
+            "Action": [
+                "sts:DecodeAuthorizationMessage",
+                "sts:GetCallerIdentity"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessSTS7"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/created-by": "prismacloud-agentless-scan"
+                }
+            },
+            "Action": [
+                "kms:CreateKey",
+                "kms:TagResource"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessKMSCreateKey10"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/created-by": "prismacloud-agentless-scan"
+                }
+            },
+            "Action": [
+                "ec2:CreateInternetGateway",
+                "ec2:CreateSubnet",
+                "ec2:CreateVpc"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessNetworkActions9"
+        },
+        {
+            "Action": [
+                "kms:CreateGrant",
+                "kms:Decrypt",
+                "kms:DescribeKey",
+                "kms:Encrypt",
+                "kms:GenerateDataKeyWithoutPlaintext",
+                "kms:ListKeys",
+                "kms:ReEncryptFrom",
+                "kms:ReEncryptTo"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessKMS5"
+        },
+        {
+            "Action": [
+                "ec2:CreateRoute",
+                "ec2:DeleteNetworkInterface",
+                "ec2:DescribeInstanceTypes",
+                "ec2:DescribeInternetGateways",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeVpcs"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudComputeAgentless1"
+        },
+        {
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "spot.amazonaws.com"
+                }
+            },
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:role/aws-service-role/spot.amazonaws.com/*"
+            ],
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessServiceLinkedRole4"
+        },
+        {
+            "Action": [
+                "ec2:CopySnapshot",
+                "ec2:CreateSnapshot",
+                "ec2:CreateSnapshots",
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeInstances",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSnapshots",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVolumes",
+                "ec2:RunInstances",
+                "iam:SimulatePrincipalPolicy"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessRW3"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/created-by": "prismacloud-agentless-scan"
+                }
+            },
+            "Action": [
+                "ec2:AttachInternetGateway",
+                "ec2:CreateSubnet",
+                "ec2:DeleteInternetGateway",
+                "ec2:DeleteSnapshot",
+                "ec2:DeleteSubnet",
+                "ec2:DeleteVpc",
+                "ec2:DetachInternetGateway",
+                "ec2:ModifySnapshotAttribute",
+                "ec2:TerminateInstances"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessRM2"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/created-by": "prismacloud-agentless-scan"
+                }
+            },
+            "Action": [
+                "ec2:CreateTags"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*::snapshot/*",
+                "arn:aws:ec2:*:*:instance/*",
+                "arn:aws:ec2:*:*:vpc/*",
+                "arn:aws:ec2:*:*:subnet/*",
+                "arn:aws:ec2:*:*:internet-gateway/*",
+                "arn:aws:ec2:*:*:volume/*"
+            ],
+            "Effect": "Allow",
+            "Sid": "PrismaCloudPCCAgentlessTags8"
+        }
+    ]
+}

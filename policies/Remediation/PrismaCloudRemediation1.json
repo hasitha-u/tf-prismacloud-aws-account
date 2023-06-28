@@ -1,0 +1,36 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "acm:UpdateCertificateOptions",
+                "cloudtrail:StartLogging",
+                "cloudtrail:UpdateTrail",
+                "ec2:ModifyImageAttribute",
+                "ec2:ModifySnapshotAttribute",
+                "ec2:ModifySubnetAttribute",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ecs:UpdateClusterSettings",
+                "eks:UpdateClusterConfig",
+                "elasticache:ModifyReplicationGroup",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "iam:UpdateAccountPasswordPolicy",
+                "kms:EnableKeyRotation",
+                "lambda:UpdateFunctionConfiguration",
+                "rds:ModifyDBCluster",
+                "rds:ModifyDBClusterSnapshotAttribute",
+                "rds:ModifyDBInstance",
+                "rds:ModifyDBSnapshotAttribute",
+                "rds:ModifyEventSubscription",
+                "redshift:ModifyCluster",
+                "s3:PutBucketAcl",
+                "s3:PutBucketPublicAccessBlock",
+                "s3:PutBucketVersioning"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudRemediation1"
+        }
+    ]
+}

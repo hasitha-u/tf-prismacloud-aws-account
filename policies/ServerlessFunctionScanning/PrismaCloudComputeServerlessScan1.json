@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ec2:DescribeImages",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListRolePolicies",
+                "iam:SimulatePrincipalPolicy",
+                "kms:Decrypt",
+                "lambda:DeleteLayerVersion",
+                "lambda:GetFunction",
+                "lambda:GetFunctionConfiguration",
+                "lambda:GetLayerVersion",
+                "lambda:ListFunctions",
+                "lambda:ListLayerVersions",
+                "lambda:ListLayers",
+                "lambda:PublishLayerVersion",
+                "lambda:UpdateFunctionConfiguration"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "PrismaCloudComputeServerlessScan1"
+        }
+    ]
+}
