@@ -162,9 +162,9 @@ data "prismacloud_account_supported_features" "this" {
 }
 
 resource "prismacloud_cloud_account_v2" "this" {
-  disable_on_destroy = true
+  disable_on_destroy = var.disable_on_destroy
   aws {
-    name       = data.aws_caller_identity.current.account_id
+    name       = var.account_name
     account_id = data.aws_caller_identity.current.account_id
     group_ids  = var.account_group_ids
     role_arn   = aws_iam_role.this.arn

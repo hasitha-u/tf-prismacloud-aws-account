@@ -60,6 +60,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_account_group_ids"></a> [account\_group\_ids](#input\_account\_group\_ids) | Prisma Cloud Account Group Ids | `list(string)` | n/a | yes |
+| <a name="input_account_name"></a> [account\_name](#input\_account\_name) | Name prefix to be used for the account on the Prisma Cloud platform (must be unique) | `string` | n/a | yes |
+| <a name="input_disable_on_destroy"></a> [disable\_on\_destroy](#input\_disable\_on\_destroy) | To disable cloud account instead of deleting when calling Terraform destroy | `bool` | `false` | no |
 | <a name="input_features"></a> [features](#input\_features) | Prisma Cloud Account features (Agentless Scanning\|Auto Protect\|Data Security\|Remediation\|Serverless Function Scanning) | `list(string)` | `[]` | no |
 | <a name="input_role_name_prefix"></a> [role\_name\_prefix](#input\_role\_name\_prefix) | Role name prefix | `string` | `"PrismaCloudRole-"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to resources | `map(string)` | `{}` | no |

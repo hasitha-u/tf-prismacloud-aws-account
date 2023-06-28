@@ -15,6 +15,12 @@ variable "account_group_ids" {
   type        = list(string)
   description = "Prisma Cloud Account Group Ids"
 }
+
+variable "account_name" {
+  type        = string
+  description = "Name prefix to be used for the account on the Prisma Cloud platform (must be unique)"
+}
+
 variable "features" {
   type        = list(string)
   description = "Prisma Cloud Account features (Agentless Scanning|Auto Protect|Data Security|Remediation|Serverless Function Scanning)"
@@ -26,4 +32,10 @@ variable "features" {
     # condition     = can(regex("^(Agentless\\sScanning|Auto\\sProtect|Data\\sSecurity|Remediation|Serverless\\sFunction\\sScanning)$", var.features))
     error_message = "Invalid input, options: \"Agentless Scanning\", \"Auto Protect\", \"Data Security\", \"Remediation\", \"Serverless Function Scanning\""
   }
+}
+
+variable "disable_on_destroy" {
+  type        = bool
+  description = "To disable cloud account instead of deleting when calling Terraform destroy"
+  default     = false
 }

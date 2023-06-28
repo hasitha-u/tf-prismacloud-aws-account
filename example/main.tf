@@ -11,8 +11,8 @@ resource "prismacloud_account_group" "example" {
 }
 
 module "example" {
-
   source            = "../"
+  account_name      = "AWS Account Example"
   account_group_ids = [prismacloud_account_group.example.group_id]
-  features          = ["Auto Protect", "Remediation"]
+  # features          = ["Auto Protect", "Remediation"]
 }
