@@ -17,7 +17,7 @@ variable "account_group_ids" {
 }
 variable "features" {
   type        = list(string)
-  description = "Prisma Cloud Protection mode. (MONITOR|MONITOR_AND_PROTECT)"
+  description = "Prisma Cloud Account features (Agentless Scanning|Auto Protect|Data Security|Remediation|Serverless Function Scanning)"
   default     = []
   validation {
     condition = alltrue([
